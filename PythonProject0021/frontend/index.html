@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>酒店评论情感分析系统</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="title">酒店评论情感分析可视化</h1>
+
+    <div class="upload" style="margin-bottom: 24px;">
+        <h3>单条评论实时分析</h3><br>
+        <input type="text" id="singleReview" placeholder="请输入酒店评论..." style="width: 75%; padding: 11px; border-radius: 6px; border: none; background: #333858; color: white;">
+        <button class="btn" id="btnAnalyze">一键分析</button>
+        <p id="singleResult" style="margin-top:15px; color:#00C851; font-weight:bold;"></p>
+    </div>
+
+    <div class="upload">
+        <h3>批量预测（上传CSV）</h3><br>
+        <input type="file" id="csvFile" accept=".csv" style="color:white"><br><br>
+        <button class="btn" id="btnUpload">上传并预测</button>
+    </div>
+
+    <div id="analysisDashboard" style="display: none; margin-top: 30px;">
+        <div class="stat">
+            <div class="card"><h3>正面</h3><div class="num" id="posNum">0</div></div>
+            <div class="card"><h3>中性</h3><div class="num" id="neuNum">0</div></div>
+            <div class="card"><h3>负面</h3><div class="num" id="negNum">0</div></div>
+            <div class="card"><h3>总数</h3><div class="num" id="totalNum">0</div></div>
+        </div>
+
+        <div style="text-align:center; margin-bottom:24px;">
+            <button class="btn" onclick="window.open('http://127.0.0.1:8000/export/excel')">导出 Excel</button>
+            <button class="btn" onclick="window.open('http://127.0.0.1:8000/export/pdf')">导出 PDF</button>
+        </div>
+
+        <div class="charts">
+            <div class="chart"><h3>情感占比</h3><br><img id="imgPie" src=""></div>
+            <div class="chart"><h3>情感数量</h3><br><img id="imgBar" src=""></div>
+        </div>
+        <div class="chart" style="margin-bottom:24px;"><h3>全局关键词词云</h3><br><img id="imgWc" src="" width="100%"></div>
+
+        <h2 style="margin:20px 0; color:#4fc3f7;">评论数据明细</h2>
+        <table id="resultTable">
+            <thead>
+                <tr style="background:#333858; font-weight:bold;">
+                    <td style="padding:12px">评论内容</td>
+                    <td style="padding:12px">情感倾向</td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
