@@ -1,0 +1,13 @@
+transformers>=4.18.0
+torch>=1.10.2
+fastapi>=0.83.0
+uvicorn
+pandas
+scikit-learn
+pydantic
+jieba
+wordcloud
+matplotlib
+reportlab==3.6.12
+jinja2
+tokenizers==0.13.3
