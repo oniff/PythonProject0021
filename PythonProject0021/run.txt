@@ -1,0 +1,4 @@
+pip install -r requirements.txt
+python run.py
+python main.py
+uvicorn main:app --reload --port 8000
